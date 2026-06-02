@@ -1,0 +1,715 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap');
+
+.profile-page {
+  min-height: 100vh;
+  background: linear-gradient(120deg, #0b0b0b, #181818);
+  font-family: 'DM Sans', sans-serif;
+  color: #fff;
+}
+
+/* Header */
+.profile-header {
+  background: rgba(0,0,0,0.9);
+  border-bottom: 1px solid rgba(0,255,255,0.15);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 2rem 5%;
+}
+
+.profile-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.back-btn-profile {
+  background: transparent;
+  border: 2px solid cyan;
+  color: cyan;
+  padding: 0.6rem 1.4rem;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+  transition: all 0.3s ease;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.back-btn-profile:hover {
+  background: rgba(0,255,255,0.1);
+  transform: translateX(-4px);
+}
+
+.profile-header-title {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+
+.profile-header-icon {
+  font-size: 2.2rem;
+}
+
+.profile-header-title h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: cyan;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.profile-header-sub {
+  color: #777;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Body layout */
+.profile-body {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 5%;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* Avatar Card */
+.avatar-card {
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(0,255,255,0.18);
+  border-radius: 24px;
+  padding: 2.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  position: sticky;
+  top: 140px;
+}
+
+.avatar-ring {
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+}
+
+.avatar-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.avatar-letter {
+  font-family: 'Syne', sans-serif;
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: cyan;
+}
+
+.avatar-camera-overlay {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  background: rgba(0,255,255,0.9);
+  color: #000;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.avatar-ring:hover .avatar-camera-overlay {
+  transform: scale(1.15);
+}
+
+.avatar-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  text-align: center;
+}
+
+.avatar-email {
+  color: #666;
+  font-size: 0.85rem;
+  margin: 0;
+  text-align: center;
+  word-break: break-all;
+}
+
+.color-row {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.color-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.color-dot:hover {
+  transform: scale(1.2);
+}
+
+.color-dot-active {
+  border-color: #fff;
+  transform: scale(1.2);
+}
+
+/* Main panel */
+.profile-main {
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(0,255,255,0.18);
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+/* Tab bar */
+.tab-bar {
+  display: flex;
+  border-bottom: 1px solid rgba(0,255,255,0.15);
+  background: rgba(0,0,0,0.3);
+}
+
+.tab-btn {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #666;
+  padding: 1.2rem 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  border-bottom: 3px solid transparent;
+}
+
+.tab-btn:hover {
+  color: #aaa;
+  background: rgba(0,255,255,0.03);
+}
+
+.tab-btn-active {
+  color: cyan;
+  border-bottom-color: cyan;
+  background: rgba(0,255,255,0.05);
+}
+
+.tab-content {
+  padding: 2rem;
+}
+
+/* Shared field styles */
+.fields-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.field-group label {
+  color: rgba(0,255,255,0.8);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.field-group input,
+.field-group select,
+.field-group textarea {
+  background: rgba(0,255,255,0.04);
+  border: 1px solid rgba(0,255,255,0.2);
+  border-radius: 12px;
+  padding: 0.85rem 1.1rem;
+  color: #fff;
+  font-size: 1rem;
+  font-family: 'DM Sans', sans-serif;
+  outline: none;
+  transition: all 0.3s ease;
+  resize: vertical;
+}
+
+.field-group input:focus,
+.field-group select:focus,
+.field-group textarea:focus {
+  border-color: cyan;
+  background: rgba(0,255,255,0.08);
+  box-shadow: 0 0 0 3px rgba(0,255,255,0.08);
+}
+
+.field-group input::placeholder,
+.field-group textarea::placeholder {
+  color: #444;
+}
+
+.field-group select option {
+  background: #111;
+  color: #fff;
+}
+
+/* Pills */
+.pill-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.pill {
+  background: rgba(0,255,255,0.05);
+  border: 1px solid rgba(0,255,255,0.2);
+  color: #aaa;
+  padding: 0.5rem 1.1rem;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.2s ease;
+}
+
+.pill:hover {
+  border-color: cyan;
+  color: cyan;
+}
+
+.pill-active {
+  background: rgba(0,255,255,0.15);
+  border-color: cyan;
+  color: cyan;
+}
+
+.pill-danger.pill-active {
+  background: rgba(255, 80, 80, 0.12);
+  border-color: #ff5050;
+  color: #ff5050;
+}
+
+/* Progress */
+.progress-card {
+  margin-top: 2rem;
+  background: rgba(0,255,255,0.04);
+  border: 1px solid rgba(0,255,255,0.15);
+  border-radius: 14px;
+  padding: 1.5rem;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.progress-bar-track {
+  background: rgba(255,255,255,0.06);
+  border-radius: 10px;
+  height: 8px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, cyan, #00d4ff);
+  border-radius: 10px;
+  transition: width 0.6s ease;
+}
+
+.progress-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: #555;
+}
+
+/* Diet Cards */
+.diet-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.diet-card {
+  background: rgba(0,255,255,0.04);
+  border: 1px solid rgba(0,255,255,0.15);
+  border-radius: 14px;
+  padding: 1.2rem 1rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.diet-card:hover {
+  border-color: rgba(0,255,255,0.4);
+  background: rgba(0,255,255,0.07);
+}
+
+.diet-card-active {
+  border-color: cyan;
+  background: rgba(0,255,255,0.12);
+}
+
+.diet-emoji {
+  font-size: 1.8rem;
+}
+
+.diet-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #ccc;
+  text-align: center;
+}
+
+.diet-card-active .diet-label {
+  color: cyan;
+}
+
+/* Save row */
+.save-row {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+  border-top: 1px solid rgba(0,255,255,0.1);
+  background: rgba(0,0,0,0.2);
+}
+
+.saved-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #34d399;
+  font-size: 0.9rem;
+  font-weight: 600;
+  animation: fadeInBadge 0.3s ease;
+}
+
+@keyframes fadeInBadge {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.save-btn {
+  background: cyan;
+  color: #000;
+  border: none;
+  border-radius: 25px;
+  padding: 0.85rem 2.2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.save-btn:hover:not(:disabled) {
+  box-shadow: 0 0 24px rgba(0,255,255,0.5);
+  transform: translateY(-2px);
+}
+
+.save-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(0,0,0,0.3);
+  border-top-color: #000;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .profile-body {
+    grid-template-columns: 1fr;
+  }
+  .avatar-card {
+    position: static;
+  }
+  .fields-grid {
+    grid-template-columns: 1fr;
+  }
+  .diet-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .tab-btn { padding: 1rem 0.5rem; }
+  .diet-cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── View / Edit mode additions ─────────────────────────────── */
+
+/* Header row — title + edit button side by side */
+.profile-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Edit Profile button */
+.edit-btn {
+  background: cyan;
+  color: #000;
+  border: none;
+  border-radius: 25px;
+  padding: 0.7rem 1.6rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.edit-btn:hover {
+  box-shadow: 0 0 20px rgba(0,255,255,0.5);
+  transform: translateY(-2px);
+}
+
+/* Cancel button */
+.cancel-btn {
+  background: transparent;
+  color: #ff5050;
+  border: 2px solid #ff5050;
+  border-radius: 25px;
+  padding: 0.7rem 1.6rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.cancel-btn:hover {
+  background: rgba(255, 80, 80, 0.1);
+}
+
+/* Editing mode banner inside the panel */
+.editing-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0,255,255,0.07);
+  border-bottom: 1px solid rgba(0,255,255,0.15);
+  color: rgba(0,255,255,0.7);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.6rem 2rem;
+  letter-spacing: 0.3px;
+}
+
+/* Read-only field value display */
+.field-value {
+  color: #e0e0e0;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.85rem 1.1rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+/* Small color swatch shown in view mode below avatar */
+.avatar-color-preview {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  margin-top: 0.5rem;
+  border: 2px solid rgba(255,255,255,0.3);
+}
+
+/* ── Read-only view styles ─────────────────────────────── */
+.view-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.view-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  background: rgba(0,255,255,0.03);
+  border: 1px solid rgba(0,255,255,0.1);
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+}
+
+.view-label {
+  color: rgba(0,255,255,0.6);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.view-value {
+  color: #e8e8e8;
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+/* field-value used in FitnessGoalsTab read-only */
+.field-value {
+  color: #e8e8e8;
+  font-size: 1.05rem;
+  font-weight: 500;
+  padding: 0.85rem 1.1rem;
+  background: rgba(0,255,255,0.03);
+  border: 1px solid rgba(0,255,255,0.1);
+  border-radius: 12px;
+}
+
+/* Avatar color preview dot (view mode) */
+.avatar-color-preview {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  margin-top: 0.5rem;
+  border: 2px solid rgba(255,255,255,0.2);
+}
+
+/* ── Header row with Edit button ───────────────────────── */
+.profile-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.edit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: 2px solid cyan;
+  color: cyan;
+  padding: 0.65rem 1.5rem;
+  border-radius: 25px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.edit-btn:hover {
+  background: rgba(0,255,255,0.1);
+  box-shadow: 0 0 18px rgba(0,255,255,0.3);
+  transform: translateY(-1px);
+}
+
+.cancel-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: 2px solid #ff6b6b;
+  color: #ff6b6b;
+  padding: 0.65rem 1.5rem;
+  border-radius: 25px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.cancel-btn:hover {
+  background: rgba(255,107,107,0.1);
+  transform: translateY(-1px);
+}
+
+/* ── Editing mode banner ───────────────────────────────── */
+.editing-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(0,255,255,0.07);
+  border-bottom: 1px solid rgba(0,255,255,0.15);
+  padding: 0.6rem 2rem;
+  font-size: 0.82rem;
+  color: rgba(0,255,255,0.7);
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+@media (max-width: 600px) {
+  .view-grid {
+    grid-template-columns: 1fr;
+  }
+  .profile-header-row {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
