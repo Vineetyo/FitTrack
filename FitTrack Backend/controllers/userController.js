@@ -15,13 +15,14 @@ exports.getProfile = async (req, res) => {
 // PUT /api/user/profile
 exports.updateProfile = async (req, res) => {
   try {
-    const { fullName, email, avatarColor, age, gender, fitnessGoals, dietary } = req.body;
+    const { fullName, email, avatarColor, avatarUrl, age, gender, fitnessGoals, dietary } = req.body;
 
     const updates = {};
 
     if (fullName    !== undefined) updates.fullName    = fullName;
     if (email       !== undefined) updates.email       = email.toLowerCase();
     if (avatarColor !== undefined) updates.avatarColor = avatarColor;
+    if (avatarUrl   !== undefined) updates.avatarUrl   = avatarUrl;
     if (age         !== undefined) updates.age         = age || null;
     if (gender      !== undefined) updates.gender      = gender;
 

@@ -83,7 +83,7 @@
 
 /* Avatar Card */
 .avatar-card {
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.55);
   border: 1px solid rgba(0,255,255,0.18);
   border-radius: 24px;
   padding: 2.5rem 1.5rem;
@@ -97,7 +97,7 @@
 
 .avatar-ring {
   position: relative;
-  cursor: pointer;
+  cursor: default;
   margin-bottom: 0.5rem;
 }
 
@@ -109,6 +109,7 @@
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
+  overflow: hidden;
 }
 
 .avatar-letter {
@@ -116,25 +117,6 @@
   font-size: 2.8rem;
   font-weight: 800;
   color: cyan;
-}
-
-.avatar-camera-overlay {
-  position: absolute;
-  bottom: 4px;
-  right: 4px;
-  background: rgba(0,255,255,0.9);
-  color: #000;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-}
-
-.avatar-ring:hover .avatar-camera-overlay {
-  transform: scale(1.15);
 }
 
 .avatar-name {
@@ -147,11 +129,25 @@
 }
 
 .avatar-email {
-  color: #666;
-  font-size: 0.85rem;
+  color: #777;
+  font-size: 0.9rem;
   margin: 0;
   text-align: center;
   word-break: break-all;
+}
+
+.avatar-hint {
+  font-size: 0.92rem;
+  color: #8ae4ff;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.avatar-actions {
+  margin-top: 0.75rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .color-row {
@@ -180,12 +176,87 @@
   transform: scale(1.2);
 }
 
+.avatar-color-preview {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.2);
+  margin-top: 1rem;
+}
+
 /* Main panel */
 .profile-main {
   background: rgba(0,0,0,0.5);
   border: 1px solid rgba(0,255,255,0.18);
   border-radius: 24px;
   overflow: hidden;
+}
+
+.profile-summary-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.4rem 2rem;
+  background: rgba(0,255,255,0.05);
+  border-bottom: 1px solid rgba(0,255,255,0.12);
+}
+
+.summary-label {
+  color: #8ae4ff;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.completion-bar {
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  overflow: hidden;
+  margin: 0.7rem 0;
+}
+
+.completion-fill {
+  height: 100%;
+  background: linear-gradient(90deg, cyan, #6ed4ff);
+  transition: width 0.4s ease;
+}
+
+.summary-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+.summary-pill {
+  background: rgba(0,255,255,0.08);
+  border: 1px solid rgba(0,255,255,0.15);
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.55rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.status-message {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: rgba(0,0,0,0.16);
+  color: #fff;
+  border-bottom: 1px solid rgba(0,255,255,0.08);
+}
+
+.status-message.error {
+  color: #ff8383;
+}
+
+.status-message.success {
+  color: #34d399;
 }
 
 /* Tab bar */
@@ -282,6 +353,51 @@
   color: #fff;
 }
 
+.field-value {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+  color: #fff;
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+}
+
+.field-value-empty {
+  color: #666;
+}
+
+/* View fields */
+.view-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.view-field {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 1.2rem;
+}
+
+.view-label {
+  display: block;
+  color: #8ae4ff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.view-value {
+  display: block;
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
 /* Pills */
 .pill-group {
   display: flex;
@@ -317,6 +433,20 @@
   background: rgba(255, 80, 80, 0.12);
   border-color: #ff5050;
   color: #ff5050;
+}
+
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.upload-error {
+  color: #ff8383;
+  font-size: 0.9rem;
+  margin-top: 0.8rem;
+  text-align: center;
 }
 
 /* Progress */
@@ -452,7 +582,7 @@
 }
 
 .save-btn:disabled {
-  opacity: 0.6;
+  opacity: 0.5;
   cursor: not-allowed;
 }
 
@@ -483,6 +613,13 @@
   }
   .diet-cards {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .profile-summary-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .summary-pill-row {
+    justify-content: flex-start;
   }
 }
 
@@ -519,6 +656,7 @@
   transition: all 0.3s ease;
   white-space: nowrap;
 }
+
 
 .edit-btn:hover {
   box-shadow: 0 0 20px rgba(0,255,255,0.5);

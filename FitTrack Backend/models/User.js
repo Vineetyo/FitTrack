@@ -21,6 +21,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: '#00ffff'
   },
+  avatarUrl: {
+    type: String,
+    default: ''
+  },
   age: {
     type: Number,
     default: null
